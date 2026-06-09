@@ -26,10 +26,6 @@ jobs:
       - name: Grant execute permission
         run: chmod +x gradlew
 
-      - name: Config Gradle wrapper mirror
-        run: |
-          sed -i 's|https://services.gradle.org/distributions/|https://mirrors.aliyun.com/maven/gradle/|g' gradle/wrapper/gradle-wrapper.properties
-
       - name: Cache Gradle
         uses: actions/cache@v3
         with:
@@ -44,6 +40,5 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Release-APK
+          name: ActivityMonitor-APK
           path: app/build/outputs/apk/release/
-
